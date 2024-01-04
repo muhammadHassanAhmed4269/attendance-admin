@@ -1,0 +1,282 @@
+<div class="logo d-flex justify-content-center p-0">
+    <a class="large_logo" href="/dashboard"><img src="/img/company.png" alt></a>
+    <a class="small_logo" href="/dashboard"><img src="/img/company.png" alt></a>
+    <div class="sidebar_close_icon d-lg-none">
+        <i class="ti-close"></i>
+    </div>
+</div>
+<ul id="sidebar_menu">
+    <li class>
+        <a aria-expanded="false">
+            <div class="nav_icon_small">
+                <i class="fas fa-tasks"></i>
+            </div>
+            <div class="nav_title">
+                <span>
+                    <!-- Icon added here -->
+                    <b>Main</b>
+                </span>
+            </div>
+        </a>
+    </li>
+    <li id="dashboard-dd">
+        <a href="/dashboard" aria-expanded="false">
+            <div class="nav_icon_small">
+                <img src="/img/menu-icon/dashboard.svg" alt="">
+            </div>
+            <div class="nav_title">
+                <span>Dashboard </span>
+            </div>
+        </a>
+    </li>
+    <li id="role-dd">
+        <a class="has-arrow" href="#" aria-expanded="false">
+            <div class="nav_icon_small">
+                <i class="fas fa-tasks"></i>
+            </div>
+            <div class="nav_title">
+                <span>
+                    <!-- Icon added here -->
+                    Roles
+                </span>
+            </div>
+        </a>
+
+        <ul>
+            <li id="add-role"><a href="/role/add-new">Add New Role</a></li>
+            <li id="list-role"><a href="/roles">All Roles</a></li>
+        </ul>
+    </li>
+    <li id="designation-dd">
+        <a class="has-arrow" href="#" aria-expanded="false">
+            <div class="nav_icon_small">
+                <i class="material-icons">work</i>
+            </div>
+            <div class="nav_title">
+                <span>
+                    <!-- Material Icon added here -->
+                    Designations
+                </span>
+            </div>
+        </a>
+
+
+        <ul>
+            <li id="add-designation"><a href="/designation/add-new">Add New Designation</a></li>
+            <li id="list-designation"><a href="/designations">All Designations</a></li>
+        </ul>
+    </li>
+    <li id="department-dd">
+        <a class="has-arrow" href="#" aria-expanded="false">
+            <div class="nav_icon_small">
+                <i class="fas fa-building"></i>
+            </div>
+            <div class="nav_title">
+                <span>
+                    <!-- Icon added here -->
+                    Departments
+                </span>
+            </div>
+        </a>
+
+        <ul>
+            <li id="add-department"><a href="/department/add-new">Add New Department</a></li>
+            <li id="list-department"><a href="/departments">All Departments</a></li>
+        </ul>
+    </li>
+    <li id="unit-dd">
+        <a class="has-arrow" href="#" aria-expanded="false">
+            <div class="nav_icon_small">
+                <i class="fas fa-cogs"></i>
+            </div>
+            <div class="nav_title">
+                <span>
+                    <!-- Icon added here -->
+                    Units
+                </span>
+            </div>
+        </a>
+
+        <ul>
+            <li id="add-unit"><a href="/unit/add-new">Add New Unit</a></li>
+            <li id="list-unit"><a href="/units">All Units</a></li>
+        </ul>
+    </li>
+    {{!-- <li class>
+        <a class="has-arrow" href="#" aria-expanded="false">
+            <div class="nav_icon_small">
+                <i class="fas fa-lock"></i>
+            </div>
+            <div class="nav_title">
+                <span>
+                    <!-- Icon added here -->
+                    Permissions
+                </span>
+            </div>
+        </a>
+
+        <ul>
+            <li><a href="/permission/add-new">Add New Permission</a></li>
+            <li><a href="/permissions">All Permissions</a></li>
+        </ul>
+    </li> --}}
+    <li id="shift-dd">
+        <a class="has-arrow" href="#" aria-expanded="false">
+            <div class="nav_icon_small">
+                <i class="material-icons">schedule</i>
+            </div>
+            <div class="nav_title">
+                <span>
+                    <!-- Icon added here -->
+                    Shifts
+                </span>
+            </div>
+        </a>
+
+        <ul>
+            <li id="add-shift"><a href="/shift/add-new">Add New Shift</a></li>
+            <li id="list-shift"><a href="/shifts">All Shifts</a></li>
+        </ul>
+    </li>
+    <li id="employee-dd">
+        <a class="has-arrow" href="#" aria-expanded="false">
+            <div class="nav_icon_small">
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="nav_title">
+                <span>
+                    <!-- Icon added here -->
+                    Employees
+                </span>
+            </div>
+        </a>
+
+        <ul>
+            <li id="add-employee"><a href="/employee/add-new">Add New Employee</a></li>
+            <li id="list-employee"><a href="/employees">All Employees</a></li>
+        </ul>
+    </li>
+    <li id="attendance-dd">
+        <a class="has-arrow" href="#" aria-expanded="false">
+            <div class="nav_icon_small">
+                <i class="far fa-calendar-alt"></i>
+            </div>
+            <div class="nav_title">
+                <span>
+                    <!-- Icon added here -->
+                    Attendances
+                </span>
+            </div>
+        </a>
+
+        <ul>
+            {{!-- <li><a href="/attendance/add-new">Add New Attendance</a></li> --}}
+            <li id="list-attendance"><a href="/attendances">All Attendances</a></li>
+        </ul>
+    </li>
+    <br>
+    <li class>
+        <a aria-expanded="false">
+            <div class="nav_icon_small">
+                <i class="fas fa-tasks"></i>
+            </div>
+            <div class="nav_title">
+                <span>
+                    <!-- Icon added here -->
+                    <b>Settings</b>
+                </span>
+            </div>
+        </a>
+    </li>
+    <li id="holiday">
+        <a class="has-arrow" aria-expanded="false">
+            <div class="nav_icon_small">
+                <i class="fas fa-tasks"></i>
+            </div>
+            <div class="nav_title">
+                <span>
+                    <!-- Icon added here -->
+                    Public Holidays
+                </span>
+            </div>
+        </a>
+
+        <ul>
+            <li id="add-holiday"><a href="/holiday/add-new">Add New Holiday</a></li>
+            <li id="list-holiday"><a href="/holidays">All Holidays</a></li>
+        </ul>
+    </li>
+</ul>
+
+<script>
+    const permissions = {{{ JSONstringify permissions }}};
+    // Hide all elements initially
+    $("#dashboard-dd").hide();
+    $("#list-role").hide();
+    $("#add-role").hide();
+    $("#list-department").hide();
+    $("#add-department").hide();
+    $("#list-designation").hide();
+    $("#add-designation").hide();
+    $("#list-unit").hide();
+    $("#add-unit").hide();
+    $("#list-shift").hide();
+    $("#add-shift").hide();
+    $("#list-employee").hide();
+    $("#add-employee").hide();
+    $("#list-attendance").hide();
+    $("#add-attendance").hide();
+
+    permissions.forEach(function (perm) {
+        switch (perm.name) {
+            case "view dashboard":
+                $("#dashboard-dd").show();
+                break;
+            case "list role":
+                $("#list-role").show();
+                break;
+            case "add role":
+                $("#add-role").show();
+                break;
+            case "list department":
+                $("#list-department").show();
+                break;
+            case "add department":
+                $("#add-department").show();
+                break;
+            case "list designation":
+                $("#list-designation").show();
+                break;
+            case "add designation":
+                $("#add-designation").show();
+                break;
+            case "list unit":
+                $("#list-unit").show();
+                break;
+            case "add unit":
+                $("#add-unit").show();
+                break;
+            case "list shift":
+                $("#list-shift").show();
+                break;
+            case "add shift":
+                $("#add-shift").show();
+                break;
+            case "list employee":
+                $("#list-employee").show();
+                break;
+            case "add employee":
+                $("#add-employee").show();
+                break;
+            case "list attendance":
+                $("#list-attendance").show();
+                break;
+            case "add attendance":
+                $("#add-attendance").show();
+                break;
+            default:
+                // Do nothing or handle the case when the permission doesn't match any case
+                break;
+        }
+    });
+</script>

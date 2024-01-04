@@ -1,0 +1,140 @@
+<script src="/js/bootstrap1.min.js"></script>
+<style>
+    #loader,
+    #sidebarLoader {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+    }
+</style>
+<script>
+    // Create the loader dynamically for main content
+    const loader = $('<div>', { id: 'loader', class: 'loader--roller perpel_loder mb_30' });
+    for (let i = 0; i < 8; i++) {
+        $('<div>').appendTo(loader);
+    }
+    $(".main_content").hide();
+    $('body').append(loader);
+
+    // Create the loader dynamically for sidebar
+    const sidebarLoader = $('<div>', { id: 'sidebarLoader', class: 'loader--roller perpel_loder mb_30' });
+    for (let i = 0; i < 8; i++) {
+        $('<div>').appendTo(sidebarLoader);
+    }
+    $(".sidebar").hide();
+    $('body').append(sidebarLoader);
+
+    // Function to remove both loaders after a certain duration
+    function hideLoaders() {
+        $('#loader, #sidebarLoader').fadeOut(500, () => { // Adjust duration here (in milliseconds)
+            $('#loader, #sidebarLoader').remove();
+            $(".main_content, .sidebar").show();
+        });
+    }
+
+    // Function to perform a hard refresh
+    function hardRefreshPage() {
+        location.reload(true); // true parameter forces a hard refresh
+    }
+
+    // Disable the page until content loads and then hide loaders
+    $(document).ready(() => {
+        $('body').css('pointer-events', 'none');
+        setTimeout(() => {
+            hideLoaders();
+            $('body').css('pointer-events', 'auto');
+        }, 500); // Trigger after 0.5 seconds
+    });
+
+    // Attach the hard refresh function to the beforeunload event
+    $(window).on('beforeunload', function () {
+        hardRefreshPage();
+    });
+</script>
+<!-- Other scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"
+    integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/js/popper1.min.js"></script>
+<script src="/js/metisMenu.js"></script>
+<!-- Other scripts -->
+<script src="/vendors/count_up/jquery.waypoints.min.js"></script>
+<script src="/vendors/chartlist/Chart.min.js"></script>
+<!-- Other scripts -->
+<script src="/vendors/progressbar/jquery.barfiller.js"></script>
+<!-- Other scripts -->
+<script src="/vendors/text_editor/summernote-bs4.js"></script>
+<script src="/vendors/am_chart/amcharts.js"></script>
+<!-- Other scripts -->
+<script src="/vendors/vectormap-home/vectormap-2.0.2.min.js"></script>
+<script src="/vendors/vectormap-home/vectormap-world-mill-en.js"></script>
+<!-- Other scripts -->
+<script src="/vendors/apex_chart/apex-chart2.js"></script>
+<script src="/vendors/apex_chart/apex_dashboard.js"></script>
+<!-- Other scripts -->
+<script src="/vendors/chart_am/core.js"></script>
+<script src="/vendors/chart_am/charts.js"></script>
+<script src="/vendors/chart_am/animated.js"></script>
+<script src="/vendors/chart_am/kelly.js"></script>
+<script src="/vendors/chart_am/chart-custom.js"></script>
+<script src="/vendors/niceselect/js/jquery.nice-select.min.js"></script>
+<!-- Other scripts -->
+<script src="/js/chart.min.js"></script>
+<script src="/vendors/chartjs/roundedBar.min.js"></script>
+<!-- Other scripts -->
+<script src="/vendors/scroll/perfect-scrollbar.min.js"></script>
+<script src="/vendors/scroll/scrollable-custom.js"></script>
+<!-- Other scripts -->
+<script src="/vendors/tagsinput/tagsinput.js"></script>
+<script src="/vendors/datatable/js/jquery.dataTables.min.js"></script>
+<script src="/vendors/datatable/js/dataTables.responsive.min.js"></script>
+<script src="/vendors/datatable/js/dataTables.buttons.min.js"></script>
+<script src="/vendors/datatable/js/buttons.flash.min.js"></script>
+<script src="/vendors/datatable/js/jszip.min.js"></script>
+<script src="/vendors/datatable/js/pdfmake.min.js"></script>
+<script src="/vendors/datatable/js/vfs_fonts.js"></script>
+<script src="/vendors/datatable/js/buttons.html5.min.js"></script>
+<script src="/vendors/datatable/js/buttons.print.min.js"></script>
+<!-- Other scripts -->
+<script src="/vendors/datepicker/datepicker.js"></script>
+<script src="/vendors/datepicker/datepicker.en.js"></script>
+<script src="/vendors/datepicker/datepicker.custom.js"></script>
+<!-- Other scripts -->
+<script src="/vendors/owl_carousel/js/owl.carousel.min.js"></script>
+<!-- Other scripts -->
+<script src="/js/dashboard_init.js"></script>
+<script src="/js/custom.js"></script>
+<!-- Permissions scripts -->
+<script src="/scripts/permissions/add-new.js"></script>
+<script src="/scripts/permissions/update.js"></script>
+<script src="/scripts/permissions/delete.js"></script>
+<!-- Roles scripts -->
+<script src="/scripts/roles/add-new.js"></script>
+<script src="/scripts/roles/update.js"></script>
+<script src="/scripts/roles/delete.js"></script>
+<!-- Designations scripts -->
+<script src="/scripts/designations/add-new.js"></script>
+<script src="/scripts/designations/update.js"></script>
+<script src="/scripts/designations/delete.js"></script>
+<!-- Departments scripts -->
+<script src="/scripts/departments/add-new.js"></script>
+<script src="/scripts/departments/update.js"></script>
+<script src="/scripts/departments/delete.js"></script>
+<!-- Units scripts -->
+<script src="/scripts/units/add-new.js"></script>
+<script src="/scripts/units/update.js"></script>
+<script src="/scripts/units/delete.js"></script>
+<!-- Shifts scripts -->
+<script src="/scripts/shifts/add-new.js"></script>
+<script src="/scripts/shifts/update.js"></script>
+<script src="/scripts/shifts/delete.js"></script>
+<!-- Employees scripts -->
+<script src="/scripts/employees/add-new.js"></script>
+<script src="/scripts/employees/update.js"></script>
+<script src="/scripts/employees/delete.js"></script>
+<!-- Holidays scripts -->
+<script src="/scripts/holidays/add-new.js"></script>
+<script src="/scripts/holidays/update.js"></script>
+<script src="/scripts/holidays/delete.js"></script>

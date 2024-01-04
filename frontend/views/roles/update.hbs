@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<!-- Mirrored from demo.dashboardpack.com/user-management-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 13 Dec 2023 13:29:04 GMT -->
+
+<head>
+    {{> header}}
+</head>
+
+<body class="crm_body_bg">
+
+
+    <nav class="sidebar">
+        {{> sidebar}}
+    </nav>
+
+    <section class="main_content dashboard_part large_header_bg">
+
+        <div class="container-fluid g-0">
+            {{> main_header}}
+        </div>
+
+        <div class="main_content_iner overly_inner ">
+            <div class="container-fluid p-0 ">
+
+                {{> dashboard_analytics}}
+                <div class="row">
+                    <div class="col-12 m-auto mt-5">
+                        <div class="white_card card_height_100 mb_30">
+                            <div class="white_card_header">
+                                <div class="box_header m-0">
+                                    <div class="main-title">
+                                        <h3 class="m-0">Update Role </h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="white_card_body">
+                                <form id="update-role-form">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            {{#role}}
+                                            <div class="common_input mb_15">
+                                                <input type="text" id="name" name="name" placeholder="Enter role name"
+                                                    style="border: 1px solid #5b6ce1;" value="{{this.name}}">
+                                                <div class="m-2" id="invalid-name"
+                                                    style="color: #BA0021;font-weight:bold;">
+                                                </div>
+                                            </div>
+                                            {{/role}}
+                                            {{!-- Permissions --}}
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="white_card card_height_100 mb_30 pt-4">
+                                                        <div class="white_card_body">
+                                                            <div class="QA_section">
+                                                                <div class="white_box_tittle list_header">
+                                                                    <h4>Select Permissions</h4>
+                                                                </div>
+                                                                <div class="QA_table mb_30">
+
+                                                                    <table class="table lms_table_active ">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th scope="col">Entity</th>
+                                                                                <th scope="col">List</th>
+                                                                                <th scope="col">View</th>
+                                                                                <th scope="col">Add</th>
+                                                                                <th scope="col">Edit</th>
+                                                                                <th scope="col">Delete</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            {{#permissions}}
+                                                                            <tr>
+                                                                                <td>{{this.entity}}</td>
+                                                                                {{#permissions}}
+                                                                                {{#if this._id}}
+                                                                                {{#compare this.selected '===' true}}
+                                                                                <td id="{{this._id}}">
+                                                                                    <div
+                                                                                        class="checkbox_wrap d-flex align-items-center">
+                                                                                        <label
+                                                                                            class="form-label lms_checkbox_1"
+                                                                                            for="course_{{this._id}}">
+                                                                                            <input type="checkbox"
+                                                                                                id="course_{{this._id}}"
+                                                                                                checked>
+                                                                                            <div
+                                                                                                class="slider-check round">
+                                                                                            </div>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </td>
+                                                                                {{else}}
+                                                                                <td id="{{this._id}}">
+                                                                                    <div
+                                                                                        class="checkbox_wrap d-flex align-items-center">
+                                                                                        <label
+                                                                                            class="form-label lms_checkbox_1"
+                                                                                            for="course_{{this._id}}">
+                                                                                            <input type="checkbox"
+                                                                                                id="course_{{this._id}}">
+                                                                                            <div
+                                                                                                class="slider-check round">
+                                                                                            </div>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </td>
+                                                                                {{/compare}}
+                                                                                {{else}}
+                                                                                <td>
+                                                                                    Not Available
+                                                                                </td>
+                                                                                {{/if}}
+
+                                                                                {{/permissions}}
+                                                                            </tr>
+                                                                            {{/permissions}}
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{!-- Permissions --}}
+                                            <div class="col-12 col-lg-2 col-md-3 col-sm-4 col-xs-12 float-end">
+                                                <div class="create_report_btn mt_30">
+                                                    <a type="submit" id="update-role-button"
+                                                        class="btn_1 radius_btn d-block text-center">Submit</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{> main_footer}}
+    </section>
+
+
+    {{> chat_popup_box}}
+
+
+    <div id="back-top" style="display: none;">
+        {{> back_to_top}}
+    </div>
+
+    {{> footer}}
+</body>
+
+<!-- Mirrored from demo.dashboardpack.com/user-management-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 13 Dec 2023 13:29:54 GMT -->
+
+</html>

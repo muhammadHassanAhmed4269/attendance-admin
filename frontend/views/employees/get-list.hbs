@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<!-- Mirrored from demo.dashboardpack.com/user-management-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 13 Dec 2023 13:29:04 GMT -->
+
+<head>
+    {{> header}}
+</head>
+
+<body class="crm_body_bg">
+
+
+    <nav class="sidebar">
+        {{> sidebar}}
+    </nav>
+
+    <section class="main_content dashboard_part large_header_bg">
+
+        {{> main_header}}
+
+        <div class="main_content_iner overly_inner ">
+            <div class="container-fluid p-0 ">
+
+                {{> dashboard_analytics}}
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="white_card card_height_100 mb_30 pt-4">
+                            <div class="white_card_body">
+                                <div class="QA_section">
+                                    <div class="white_box_tittle list_header">
+                                        <h4>Employee List </h4>
+                                        {{> search_bar}}
+                                    </div>
+                                    <div class="QA_table mb_30">
+
+                                        {{!-- Employees --}}
+                                        <table class="table lms_table_active ">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">id</th>
+                                                    <th scope="col">Full Name</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Mobile Number</th>
+                                                    <th scope="col">NIC Number</th>
+                                                    <th scope="col">Details</th>
+                                                    <th scope="col">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="employee-list">
+                                                {{#employees}}
+                                                <tr>
+                                                    <td>{{this.count}}</td>
+                                                    <td>{{this.fullName}}</td>
+                                                    <td>{{this.email}}</td>
+                                                    <td>{{this.mobileNumber}}</td>
+                                                    <td>{{this.nicNumber}}</td>
+                                                    <td><a href="/employee?_id={{this._id}}"
+                                                            class="status_btn bg-dark">View</a></td>
+                                                    <td>
+                                                        <div class="action_btns d-flex">
+                                                            <a href="/employee/update?_id={{this._id}}"
+                                                                class="action_btn mr_10">
+                                                                <i class="far fa-edit"></i>
+                                                            </a>
+                                                            <a style="cursor: pointer;" id="{{this._id}}"
+                                                                class="action_btn delete delete-employee-button"> <i
+                                                                    class="fas fa-trash"></i>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                {{/employees}}
+                                            </tbody>
+                                        </table>
+                                        {{!-- Employees --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{> main_footer}}
+    </section>
+
+
+    {{> chat_popup_box}}
+
+
+    <div id="back-top" style="display: none;">
+        {{> back_to_top}}
+    </div>
+
+    {{> footer}}
+</body>
+
+<!-- Mirrored from demo.dashboardpack.com/user-management-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 13 Dec 2023 13:29:54 GMT -->
+
+</html>

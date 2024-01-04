@@ -1,0 +1,26 @@
+const Model = require("../../models/departments/schema");
+const Repository = require("../../repositories/mongo");
+const GetListUseCase = require("../../use-cases/departments/get-list");
+const GetUseCase = require("../../use-cases/departments/get");
+const AddNewUseCase = require("../../use-cases/departments/add-new");
+const UpdateUseCase = require("../../use-cases/departments/update");
+const DeleteUseCase = require("../../use-cases/departments/delete");
+const Controller = require("../../interfaces/controllers/departments/controllers");
+const setUpRoutes = require("../../interfaces/routes/departments/routes");
+
+const repository = new Repository(Model);
+const getListUseCase = new GetListUseCase(repository);
+const getUseCase = new GetUseCase(repository);
+const addNewUseCase = new AddNewUseCase(repository);
+const updateUseCase = new UpdateUseCase(repository);
+const deleteUseCase = new DeleteUseCase(repository);
+const controller = new Controller(
+  getListUseCase,
+  getUseCase,
+  addNewUseCase,
+  updateUseCase,
+  deleteUseCase
+);
+const routes = setUpRoutes(controller);
+
+module.exports = routes;

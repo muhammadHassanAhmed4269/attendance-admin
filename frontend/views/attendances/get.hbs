@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<!-- Mirrored from demo.dashboardpack.com/user-management-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 13 Dec 2023 13:29:04 GMT -->
+
+<head>
+    {{> header}}
+</head>
+
+<body class="crm_body_bg">
+    <style></style>
+
+
+    <nav class="sidebar">
+        {{> sidebar}}
+    </nav>
+
+    <section class="main_content dashboard_part large_header_bg">
+
+        <div class="container-fluid g-0">
+            {{> main_header}}
+        </div>
+
+        <div class="main_content_iner overly_inner ">
+            <div class="container-fluid p-0 ">
+
+                {{> dashboard_analytics}}
+                <div class="row">
+                    <div class="col-12 m-auto mt-5">
+                        <div class="white_card card_height_100 mb_30">
+                            <div class="white_card_header">
+                                <div class="box_header m-0">
+                                    <div class="main-title">
+                                        <h3 class="m-0">Attendance </h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="white_card_body">
+                                <form id="add-role-form">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            {{!-- Attendances --}}
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="white_card card_height_100 mb_30 pt-4">
+                                                        <div class="white_card_body">
+                                                            <div class="QA_section">
+                                                                {{#employee}}
+                                                                <div class="row white_box_tittle list_header">
+                                                                    <h4>Month: <strong>{{this.monthYear}}</strong></h4>
+                                                                    <h4>Name: <strong>{{this.fullName}}</strong></h4>
+                                                                    <h4>Shift: <strong>{{this.shift}}</strong></h4>
+                                                                </div>
+                                                                {{/employee}}
+                                                                <div class="white_box_tittle list_header">
+                                                                    <h4>Records</h4>
+                                                                </div>
+                                                                <div class="QA_table mb_30">
+
+                                                                    <table class="table lms_table_active ">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th scope="col"><strong>Id</strong></th>
+                                                                                <th scope="col"><strong>Date</strong>
+                                                                                </th>
+                                                                                <th scope="col"><strong>Day</strong>
+                                                                                </th>
+                                                                                <th scope="col"><strong>Check
+                                                                                        In</strong>
+                                                                                </th>
+                                                                                <th scope="col"><strong>Check
+                                                                                        Out</strong>
+                                                                                </th>
+                                                                                <th scope="col"><strong>Status</strong>
+                                                                                </th>
+                                                                                <th scope="col">
+                                                                                    <strong>Calender</strong>
+                                                                                </th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            {{#attendance}}
+                                                                            <tr
+                                                                                style="background-color: {{this.backgroundColor}};">
+                                                                                <td style="color:{{this.color}};">
+                                                                                    <strong>{{this.count}}</strong>
+                                                                                </td>
+                                                                                <td style="color:{{this.color}};">
+                                                                                    <strong>{{this.date}}</strong>
+                                                                                </td>
+                                                                                <td style="color:{{this.color}};">
+                                                                                    <strong>{{this.day}}</strong>
+                                                                                </td>
+                                                                                <td style="color:{{this.color}};">
+                                                                                    <strong>{{this.checkIn}}</strong>
+                                                                                </td>
+                                                                                <td style="color:{{this.color}};">
+                                                                                    <strong>{{this.checkOut}}</strong>
+                                                                                </td>
+                                                                                <td style="color:{{this.color}};">
+                                                                                    <strong>{{this.status}}</strong>
+                                                                                </td>
+                                                                                <td style="color:{{this.color}};">
+                                                                                    <strong>{{this.calender}}</strong>
+                                                                                </td>
+                                                                            </tr>
+                                                                            {{/attendance}}
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{!-- Attendances --}}
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{> main_footer}}
+    </section>
+
+
+    {{> chat_popup_box}}
+
+
+    <div id="back-top" style="display: none;">
+        {{> back_to_top}}
+    </div>
+
+
+
+    {{> footer}}
+    <script>
+        $(document).ready(function () {
+            const table = $('.lms_table_active').DataTable();
+            table.page.len(-1).draw(); // Set page length to -1 (show all records)
+            table.paging = false; // Disable pagination
+
+            const length = $("table").page.len();
+            $('#DataTables_Table_0_info').text(`Showing all ${length} entries`);
+        });
+    </script>
+    <script src="/scripts/departments/get.js"></script>
+</body>
+
+<!-- Mirrored from demo.dashboardpack.com/user-management-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 13 Dec 2023 13:29:54 GMT -->
+
+</html>

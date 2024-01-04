@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<!-- Mirrored from demo.dashboardpack.com/user-management-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 13 Dec 2023 13:29:04 GMT -->
+
+<head>
+    {{> header}}
+</head>
+
+<body class="crm_body_bg">
+
+
+    <nav class="sidebar">
+        {{> sidebar}}
+    </nav>
+
+    <section class="main_content dashboard_part large_header_bg">
+
+        <div class="container-fluid g-0">
+            {{> main_header}}
+        </div>
+
+        <div class="main_content_iner overly_inner ">
+            <div class="container-fluid p-0 ">
+
+                {{> dashboard_analytics}}
+                <div class="row">
+                    <div class="col-12 m-auto mt-5">
+                        <div class="white_card card_height_100 mb_30">
+                            <div class="white_card_header">
+                                <div class="box_header m-0">
+                                    <div class="main-title">
+                                        <h3 class="m-0">Update Employee </h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="white_card_body">
+                                <form id="update-employee-form" enctype="multipart/form-data">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <label for="personal-details">
+                                                <h5 class="m-2"><strong>Personal Details: </strong> </h5>
+                                            </label>
+                                            {{#employee}}
+                                            <div class="row" id="personal-details">
+                                                <div class="col-lg-6">
+                                                    <div class="common_input mb_15">
+                                                        <input style="border: 1px solid #5b6ce1;" type="text"
+                                                            placeholder="Enter employee's full name" id="fullName"
+                                                            name="fullName" value="{{this.fullName}}">
+                                                        <div class="m-2" id="invalid-full-name"
+                                                            style="color: #BA0021;font-weight:bold;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="common_input mb_15">
+                                                        <input style="border: 1px solid #5b6ce1;" type="email"
+                                                            placeholder="Enter employee's email" id="email" name="email"
+                                                            value="{{this.email}}" readonly>
+                                                        <div class="m-2" id="invalid-email"
+                                                            style="color: #BA0021;font-weight:bold;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="common_input mb_15">
+                                                        <input style="border: 1px solid #5b6ce1;" type="password"
+                                                            placeholder="Enter employee's password" id="password"
+                                                            name="password" value="{{this.password}}">
+                                                        <div class="m-2" id="invalid-password"
+                                                            style="color: #BA0021;font-weight:bold;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {{!-- <div class="col-lg-6">
+                                                    <div class="common_input mb_15">
+                                                        <input type="file" id="profilePic" name="profilePicture"
+                                                            accept="image/*" style="display: none;">
+                                                        <input style="border: 1px solid #5b6ce1; cursor: pointer;"
+                                                            type="text" placeholder="Upload employee's profile picture"
+                                                            id="profilePicture" name="profilePicture" readonly
+                                                            onclick="document.getElementById('profilePic').click();">
+                                                        <div class="m-2" id="invalid-profile-picture"
+                                                            style="color: #BA0021;font-weight:bold;">
+                                                        </div>
+                                                    </div>
+                                                </div> --}}
+                                                <div class="col-lg-6">
+                                                    <div class="common_input mb_15">
+                                                        <input style="border: 1px solid #5b6ce1;" type="text"
+                                                            placeholder="Enter employee's mobile number"
+                                                            id="mobileNumber" name="mobileNumber"
+                                                            value="{{this.mobileNumber}}" maxlength="16">
+                                                        <div class="m-2" id="invalid-mobile-number"
+                                                            style="color: #BA0021;font-weight:bold;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="common_input mb_15">
+                                                        <input style="border: 1px solid #5b6ce1;" type="text"
+                                                            placeholder="Enter employee's emergency number"
+                                                            id="emergencyNumber" name="emergencyNumber"
+                                                            value="{{this.emergencyNumber}}" maxlength="16">
+                                                        <div class="m-2" id="invalid-emergency-number"
+                                                            style="color: #BA0021;font-weight:bold;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="common_input mb_15">
+                                                        <input style="border: 1px solid #5b6ce1;" type="text"
+                                                            placeholder="Enter employee's next to kin" id="nextToKin"
+                                                            name="nextToKin" value="{{this.nextToKin}}">
+                                                        <div class="m-2" id="invalid-next-to-kin"
+                                                            style="color: #BA0021;font-weight:bold;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="common_input mb_15">
+                                                        <input style="border: 1px solid #5b6ce1;" type="text"
+                                                            placeholder="Enter employee's relation to kin"
+                                                            id="relationToKin" name="relationToKin"
+                                                            value="{{this.relationToKin}}">
+                                                        <div class="m-2" id="invalid-relation-to-kin"
+                                                            style="color: #BA0021;font-weight:bold;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="common_input mb_15">
+                                                        <input style="border: 1px solid #5b6ce1;" type="address"
+                                                            placeholder="Enter employee's home address 1"
+                                                            id="homeAddress1" name="homeAddress1"
+                                                            value="{{this.homeAddress1}}">
+                                                        <div class="m-2" id="invalid-home-address-1"
+                                                            style="color: #BA0021;font-weight:bold;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="common_input mb_15">
+                                                        <input style="border: 1px solid #5b6ce1;" type="address"
+                                                            placeholder="Enter employee's home address 2"
+                                                            id="homeAddress2" name="homeAddress2"
+                                                            value="{{this.homeAddress2}}">
+                                                        <div class="m-2" id="invalid-home-address-2"
+                                                            style="color: #BA0021;font-weight:bold;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="common_input mb_15">
+                                                        <input style="border: 1px solid #5b6ce1;" type="text"
+                                                            placeholder="Enter employee's NIC number" id="nicNumber"
+                                                            name="nicNumber" value="{{this.nicNumber}}">
+                                                        <div class="m-2" id="invalid-nic-number"
+                                                            style="color: #BA0021;font-weight:bold;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {{!-- <div class="col-lg-6">
+                                                    <div class="common_input mb_15">
+                                                        <input type="file" id="nicFront" name="frontPicture"
+                                                            accept="image/*" style="display: none;">
+                                                        <input style="border: 1px solid #5b6ce1; cursor: pointer;"
+                                                            type="text"
+                                                            placeholder="Upload employee's NIC front picture"
+                                                            id="frontPicture" name="frontPicture" readonly
+                                                            onclick="document.getElementById('nicFront').click();">
+                                                        <div class="m-2" id="invalid-nic-front-picture"
+                                                            style="color: #BA0021;font-weight:bold;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="common_input mb_15">
+                                                        <input type="file" id="nicBack" name="backPicture"
+                                                            accept="image/*" style="display: none;">
+                                                        <input style="border: 1px solid #5b6ce1; cursor: pointer;"
+                                                            type="text" placeholder="Upload employee's NIC back picture"
+                                                            id="backPicture" name="backPicture" readonly
+                                                            onclick="document.getElementById('nicBack').click();">
+                                                        <div class="m-2" id="invalid-nic-back-picture"
+                                                            style="color: #BA0021;font-weight:bold;">
+                                                        </div>
+                                                    </div>
+                                                </div> --}}
+                                            </div>
+                                            {{/employee}}
+                                            <label for="employment-history">
+                                                <h5 class="m-2"><strong>Employment History: </strong> </h5>
+                                            </label>
+                                            <div class="row" id="employment-history">
+                                                <div class="col-lg-6">
+                                                    <div class="common_input mb_15">
+                                                        <select id="unit" style="border: 1px solid #5b6ce1;"
+                                                            class="unit nice_Select2 nice_Select_line wide" required>
+                                                            <option>Select Unit</option>
+                                                            {{#units}}
+                                                            <option value="{{this._id}}">{{this.name}}</option>
+                                                            {{/units}}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="m-2" id="invalid-unit"
+                                                    style="color: #BA0021;font-weight:bold;">
+                                                </div>
+                                                <div class="col-lg-6 mb-3">
+                                                    <div class="common_input mb_15">
+                                                        <select id="department" style="border: 1px solid #5b6ce1;"
+                                                            class="department nice_Select2 nice_Select_line wide"
+                                                            required>
+                                                            {{!-- options here --}}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="m-2" id="invalid-department"
+                                                    style="color: #BA0021;font-weight:bold;">
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="common_input mb_15">
+                                                        <select id="designation" style="border: 1px solid #5b6ce1;"
+                                                            class="designation nice_Select2 nice_Select_line wide"
+                                                            required>
+                                                            {{!-- options here --}}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="m-2" id="invalid-designation"
+                                                    style="color: #BA0021;font-weight:bold;">
+                                                </div>
+                                            </div>
+                                            <label for="assign-role">
+                                                <h5 class="m-2"><strong>Assign Role: </strong> </h5>
+                                            </label>
+                                            <div class="row" id="assign-role">
+                                                <div class="col-lg-6">
+                                                    <div class="common_input mb_15">
+                                                        <select id="employee-role" style="border: 1px solid #5b6ce1;"
+                                                            class="employee-role nice_Select2 nice_Select_line wide"
+                                                            required>
+                                                            {{!-- options here --}}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="m-2" id="invalid-role"
+                                                    style="color: #BA0021;font-weight:bold;">
+                                                </div>
+                                            </div>
+                                            <label for="assign-shift">
+                                                <h5 class="m-2"><strong>Assign Shift: </strong> </h5>
+                                            </label>
+                                            <div class="row" id="assign-shift">
+                                                <div class="col-lg-6">
+                                                    <div class="common_input mb_15">
+                                                        <select id="shift" style="border: 1px solid #5b6ce1;"
+                                                            class="nice_Select2 nice_Select_line wide" required>
+                                                            <option selected>Select Shift</option>
+                                                            {{#shifts}}
+                                                            <option value="{{this._id}}">{{this.name}}</option>
+                                                            {{/shifts}}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="m-2" id="invalid-shift"
+                                                    style="color: #BA0021;font-weight:bold;">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-2 col-md-3 col-sm-4 col-xs-12 float-end">
+                                                <div class="create_report_btn mt_30">
+                                                    <a type="submit" id="update-employee-button"
+                                                        class="btn_1 radius_btn d-block text-center">Submit</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{> main_footer}}
+    </section>
+
+
+    {{> chat_popup_box}}
+
+
+    <div id="back-top" style="display: none;">
+        {{> back_to_top}}
+    </div>
+
+    {{> footer}}
+    <script>
+        $(document).ready(function () {
+            $('#profilePic').change(function () {
+                const file = this.files[0];
+                if (file && file.type.startsWith('image/')) {
+                    $('#profilePicture').val("Profile Picture: " + file.name);
+                } else {
+                    alert('Please select an image file for profile picture.');
+                    $(this).val('');
+                    $('#profilePicture').val('');
+                }
+            });
+
+            $('#nicFront').change(function () {
+                const file = this.files[0];
+                if (file && file.type.startsWith('image/')) {
+                    $('#frontPicture').val("Front Picture: " + file.name);
+                } else {
+                    alert('Please select an image file for NIC front picture.');
+                    $(this).val('');
+                    $('#frontPicture').val('');
+                }
+            });
+
+            $('#nicBack').change(function () {
+                const file = this.files[0];
+                if (file && file.type.startsWith('image/')) {
+                    $('#backPicture').val("Back Picture: " + file.name);
+                } else {
+                    alert('Please select an image file for NIC back picture.');
+                    $(this).val('');
+                    $('#backPicture').val('');
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            const departmentCurrentValue = $(".department span.current");
+            const designationCurrentValue = $(".designation span.current");
+            const employeeRoleCurrentValue = $(".employee-role span.current");
+
+
+            $("#unit").change(function () {
+                let selectedUnitId = $(this).val();
+                let currentValue = $(".department span.current");
+                $.ajax({
+                    url: '/api/v1/auth/unit?_id=' + selectedUnitId,
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function (response) {
+                        let departmentsArray = response.body.departments;
+                        if (departmentsArray.length > 0) {
+                            let departmentSelect = $(".department ul");
+                            departmentSelect.empty();
+                            departmentSelect.append('<li class="option">Select Department</li>');
+
+                            for (let i = 0; i < departmentsArray.length; i++) {
+                                let department = departmentsArray[i];
+                                departmentSelect.append('<li data-value="' + department._id + '" class="option">' + department.name + '</li>');
+                            }
+
+                            currentValue.text("Select Department");
+                        } else {
+                            currentValue.text("No departments for the selected unit");
+                            designationCurrentValue.text("No department selected")
+                            employeeRoleCurrentValue.text("No designation selected")
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error:", error);
+                        console.log("Status:", status);
+                        let response = xhr.responseJSON;
+                        console.log("Response:", response);
+                    }
+                });
+            });
+
+            $("#department").change(function () {
+                let selectedDepartment = $(".department li.option.selected");
+                let selectedDepartmentId = selectedDepartment.data('value');
+                let currentValue = $(".designation span.current");
+
+                $.ajax({
+                    url: "/api/v1/auth/department?_id=" + selectedDepartmentId,
+                    method: "GET",
+                    dataType: "json",
+                    success: function (response) {
+                        let designations;
+                        if (response.body.designations.length > 0) {
+                            designations = response.body.designations;
+                            let designationSelect = $(".designation ul");
+                            designationSelect.empty();
+                            designationSelect.append('<li class="option">Select Designation</li>');
+
+                            for (let i = 0; i < designations.length; i++) {
+                                let designation = designations[i];
+                                designationSelect.append('<li data-value="' + designation._id + '" class="option">' + designation.name + '</li>');
+                            }
+
+                            currentValue.text("Select Designation");
+                        } else {
+                            currentValue.text("No designations for the selected department");
+                            employeeRoleCurrentValue.text("No designation selected")
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error:", error);
+                        console.log("Status:", status);
+                        let response = xhr.responseJSON;
+                        console.log("Response:", response);
+                    }
+                });
+            });
+
+            $("#designation").change(function () {
+                let selectedDesignation = $(".designation li.option.selected");
+                let selectedDesignationId = selectedDesignation.data('value');
+                let currentValue = $(".employee-role span.current");
+
+                $.ajax({
+                    url: "/api/v1/auth/designation?_id=" + selectedDesignationId,
+                    method: "GET",
+                    dataType: "json",
+                    success: function (response) {
+                        let roles;
+                        if (response.body.roles.length > 0) {
+                            roles = response.body.roles;
+                            let roleSelect = $(".employee-role ul");
+                            roleSelect.empty();
+                            roleSelect.append('<li class="option">Select Role</li>');
+
+                            for (let i = 0; i < roles.length; i++) {
+                                let role = roles[i];
+                                roleSelect.append('<li data-value="' + role._id + '" class="option">' + role.name + '</li>');
+                            }
+
+                            currentValue.text("Select Role");
+                        } else {
+                            currentValue.text("No roles for the selected designation");
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error:", error);
+                        console.log("Status:", status);
+                        let response = xhr.responseJSON;
+                        console.log("Response:", response);
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        const nicNumberInput = document.getElementById('nicNumber');
+
+        nicNumberInput.addEventListener('input', function (event) {
+            const input = event.target;
+            const value = input.value.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+
+            // Format NIC number with dashes
+            const formattedValue = value
+                .slice(0, 5) + '-' + value.slice(5, 12) + '-' + value.slice(12, 13);
+
+            input.value = formattedValue;
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileInput = document.getElementById('mobileNumber');
+            const emergencyInput = document.getElementById('emergencyNumber');
+
+            mobileInput.addEventListener('input', function () {
+                if (!mobileInput.value.startsWith('+92')) {
+                    mobileInput.value = '+92';
+                }
+            });
+
+            emergencyInput.addEventListener('input', function () {
+                if (!emergencyInput.value.startsWith('+92')) {
+                    emergencyInput.value = '+92';
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
