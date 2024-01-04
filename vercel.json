@@ -17,5 +17,16 @@
     "JWT_SECRET": "8c815dc9de2061170f0e040dace2b3f9afe52335cb6c9483d1d1adac9f49357668206304de4c5135a7f5225685a813693a65e700c8b425c21fc160c9b57df4cd",
     "SESSION_SECRET": "036924301042cd286aebddf554fba5feb66174a3766f54b0970c768c55a2838f73baff2036aeb9184d394ca8363f14b9ca4232289513273a1f2900f8e455f29d_",
     "MONGO_URL": "mongodb+srv://hassanm8537:b7CnN4Ucf15LhdJv@attendance-managment-cl.gxnbmgs.mongodb.net/?retryWrites=true&w=majority"
+  },
+  "build": {
+    "env": {
+         "PORT": "9876",
+    "JWT_SECRET": "8c815dc9de2061170f0e040dace2b3f9afe52335cb6c9483d1d1adac9f49357668206304de4c5135a7f5225685a813693a65e700c8b425c21fc160c9b57df4cd",
+    "SESSION_SECRET": "036924301042cd286aebddf554fba5feb66174a3766f54b0970c768c55a2838f73baff2036aeb9184d394ca8363f14b9ca4232289513273a1f2900f8e455f29d_",
+    "MONGO_URL": "mongodb+srv://hassanm8537:b7CnN4Ucf15LhdJv@attendance-managment-cl.gxnbmgs.mongodb.net/?retryWrites=true&w=majority"
+    },
+    "commands": {
+      "build": "npm install && npm run build"
+    }
   }
 }

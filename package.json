@@ -2,7 +2,10 @@
   "name": "admin",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "source/app.js",
+   "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "start": "nodemon source/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
