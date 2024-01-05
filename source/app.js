@@ -127,9 +127,9 @@ const holidaysRoutes = require("./dependency-injections/holidays/injections");
 app.use(authPages);
 app.use(authRoutes);
 
-app.use(checkTokenMiddleware);
+// app.use(checkTokenMiddleware);
 
-app.use(roleBasedAuthorization);
+// app.use(roleBasedAuthorization);
 
 app.use((req, res, next) => {
   if (req.user) {
@@ -163,7 +163,6 @@ app.use(holidaysRoutes);
 // create server
 const server = http.createServer(app);
 const dbConnector = require("./configurations/database");
-const { permissions } = require("./configurations/project-messages");
 server.listen(environmentVariables.application.port, () => {
   dbConnector;
   console.log("Server live at " + environmentVariables.application.port);
