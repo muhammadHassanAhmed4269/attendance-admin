@@ -20,7 +20,7 @@ class DeleteUseCase {
         );
       }
 
-      const deletedRole = await this.repository.findByIdAndDelete(roleId);
+      const deletedRole = await this.repository.findOneAndDelete(req.query);
       return apiResponseHelper(
         res,
         customStatuses.ok,

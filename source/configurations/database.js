@@ -43,7 +43,7 @@ class DatabaseConnector {
 }
 
 // Check if MongoDB URL is provided in the environment variables
-const DBURI = process.env.MONGO_URL;
+const DBURI = process.env.MONGODB_URL;
 if (!DBURI) {
   console.error("MongoDB URL is missing.");
   process.exit(1);

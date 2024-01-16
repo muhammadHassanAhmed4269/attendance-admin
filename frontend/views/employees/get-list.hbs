@@ -42,7 +42,10 @@
                                                     <th scope="col">Email</th>
                                                     <th scope="col">Mobile Number</th>
                                                     <th scope="col">NIC Number</th>
-                                                    <th scope="col">Details</th>
+                                                    <th scope="col">Units</th>
+                                                    <th scope="col">Departments</th>
+                                                    <th scope="col">Designations</th>
+                                                    {{!-- <th scope="col">Details</th> --}}
                                                     <th scope="col">Action</th>
                                                 </tr>
                                             </thead>
@@ -54,8 +57,15 @@
                                                     <td>{{this.email}}</td>
                                                     <td>{{this.mobileNumber}}</td>
                                                     <td>{{this.nicNumber}}</td>
-                                                    <td><a href="/employee?_id={{this._id}}"
-                                                            class="status_btn bg-dark">View</a></td>
+                                                    {{#units}}
+                                                    <td>{{this.name}}</td>
+                                                    {{/units}}
+                                                    {{#departments}}
+                                                    <td>{{this.name}}</td>
+                                                    {{/departments}}
+                                                    {{#designations}}
+                                                    <td>{{this.name}}</td>
+                                                    {{/designations}}
                                                     <td>
                                                         <div class="action_btns d-flex">
                                                             <a href="/employee/update?_id={{this._id}}"
@@ -63,8 +73,8 @@
                                                                 <i class="far fa-edit"></i>
                                                             </a>
                                                             <a style="cursor: pointer;" id="{{this._id}}"
-                                                                class="action_btn delete delete-employee-button"> <i
-                                                                    class="fas fa-trash"></i>
+                                                                class="action_btn delete delete-employee-button">
+                                                                <i class="fas fa-trash"></i>
                                                             </a>
                                                         </div>
                                                     </td>

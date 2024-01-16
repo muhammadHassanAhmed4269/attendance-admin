@@ -1,8 +1,8 @@
-const { customStatuses } = require("../../configurations/custom-statuses");
+const customStatuses = require("../../configurations/custom-statuses");
 const {
   apiResponseHelper,
 } = require("../../dependency-injections/utilities/api-response");
-const { projectMessages } = require("../../configurations/project-messages");
+const projectMessages = require("../../configurations/project-messages");
 const { isNotFound } = require("entity-checker");
 
 class AddNewUseCase {

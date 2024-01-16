@@ -1,5 +1,5 @@
 <script src="/js/bootstrap1.min.js"></script>
-{{!-- <style>
+<style>
     #loader,
     #sidebarLoader {
         position: fixed;
@@ -28,7 +28,7 @@
 
     // Function to remove both loaders after a certain duration
     function hideLoaders() {
-        $('#loader, #sidebarLoader').fadeOut(500, () => { // Adjust duration here (in milliseconds)
+        $('#loader, #sidebarLoader').fadeOut(100, () => { // Adjust duration here (in milliseconds)
             $('#loader, #sidebarLoader').remove();
             $(".main_content, .sidebar").show();
         });
@@ -45,14 +45,14 @@
         setTimeout(() => {
             hideLoaders();
             $('body').css('pointer-events', 'auto');
-        }, 500); // Trigger after 0.5 seconds
+        }, 100); // Trigger after 0.5 seconds
     });
 
     // Attach the hard refresh function to the beforeunload event
     $(window).on('beforeunload', function () {
         hardRefreshPage();
     });
-</script> --}}
+</script>
 <!-- Other scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"
     integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ=="

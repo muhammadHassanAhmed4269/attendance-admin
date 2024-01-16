@@ -20,8 +20,8 @@ class UpdateUseCase {
         );
       }
 
-      const updatedRole = await this.repository.findByIdAndUpdate(
-        roleId,
+      const updatedRole = await this.repository.findOneAndUpdate(
+        req.query,
         req.body,
         { new: true }
       );

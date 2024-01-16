@@ -13,6 +13,16 @@ $(document).ready(function () {
   const homeAddress1 = $("#homeAddress1");
   const homeAddress2 = $("#homeAddress2");
 
+  const grossSalary = $("#grossSalary");
+  const basicSalary = $("#basicSalary");
+  const houseRent = $("#houseRent");
+  const utility = $("#utility");
+  const medicalAllowance = $("#medicalAllowance");
+  const taxableAmount = $("#taxableAmount");
+  const incomeTax = $("#incomeTax");
+  const eobi = $("#eobi");
+  const bankCharges = $("#bankCharges");
+
   let selectedUnit;
   let selectedDepartment;
   let selectedDesignation;
@@ -60,6 +70,16 @@ $(document).ready(function () {
   const invalidselectedRole = $("#invalid-role");
   const invalidselectedShift = $("#invalid-shift");
 
+  const invalidgrossSalary = $("#invalid-gross-salary");
+  const invalidbasicSalary = $("#invalid-basic-salary");
+  const invalidhouseRent = $("#invalid-house-rent");
+  const invalidutility = $("#invalid-utility");
+  const invalidmedicalAllowance = $("#invalid-medical-allowance");
+  const invalidtaxableAmount = $("#invalid-taxable-amount");
+  const invalidincomeTax = $("#invalid-income-tax");
+  const invalideobi = $("#invalid-eobi");
+  const invalidbankCharges = $("#invalid-bank-charges");
+
   fullName.on("input", function () {
     invalidfullName.text("");
     $(this).css("border", "1px solid #5b6ce1");
@@ -82,11 +102,6 @@ $(document).ready(function () {
     $(this).css("border", "1px solid #5b6ce1");
     $(this).css("border", "1px solid #5b6ce1");
   });
-  // profilePicture.on("input", function () {
-  //   invalidprofilePicture.text("");
-  //   $(this).css("border", "1px solid #5b6ce1");
-  //   $(this).css("border", "1px solid #5b6ce1");
-  // });
   mobileNumber.on("input", function () {
     invalidmobileNumber.text("");
     $(this).css("border", "1px solid #5b6ce1");
@@ -124,16 +139,6 @@ $(document).ready(function () {
       invalidnicNumber.text("Invalid NIC number");
     }
   });
-  // nicFrontPicture.on("input", function () {
-  //   invalidnicFrontPicture.text("");
-  //   $(this).css("border", "1px solid #5b6ce1");
-  //   $(this).css("border", "1px solid #5b6ce1");
-  // });
-  // nicBackPicture.on("input", function () {
-  //   invalidnicBackPicture.text("");
-  //   $(this).css("border", "1px solid #5b6ce1");
-  //   $(this).css("border", "1px solid #5b6ce1");
-  // });
   nextToKin.on("input", function () {
     invalidnextToKin.text("");
     $(this).css("border", "1px solid #5b6ce1");
@@ -151,6 +156,51 @@ $(document).ready(function () {
   });
   homeAddress2.on("input", function () {
     invalidhomeAddress2.text("");
+    $(this).css("border", "1px solid #5b6ce1");
+    $(this).css("border", "1px solid #5b6ce1");
+  });
+  grossSalary.on("input", function () {
+    invalidgrossSalary.text("");
+    $(this).css("border", "1px solid #5b6ce1");
+    $(this).css("border", "1px solid #5b6ce1");
+  });
+  basicSalary.on("input", function () {
+    invalidbasicSalary.text("");
+    $(this).css("border", "1px solid #5b6ce1");
+    $(this).css("border", "1px solid #5b6ce1");
+  });
+  houseRent.on("input", function () {
+    invalidhouseRent.text("");
+    $(this).css("border", "1px solid #5b6ce1");
+    $(this).css("border", "1px solid #5b6ce1");
+  });
+  utility.on("input", function () {
+    invalidutility.text("");
+    $(this).css("border", "1px solid #5b6ce1");
+    $(this).css("border", "1px solid #5b6ce1");
+  });
+  taxableAmount.on("input", function () {
+    invalidtaxableAmount.text("");
+    $(this).css("border", "1px solid #5b6ce1");
+    $(this).css("border", "1px solid #5b6ce1");
+  });
+  incomeTax.on("input", function () {
+    invalidincomeTax.text("");
+    $(this).css("border", "1px solid #5b6ce1");
+    $(this).css("border", "1px solid #5b6ce1");
+  });
+  eobi.on("input", function () {
+    invalideobi.text("");
+    $(this).css("border", "1px solid #5b6ce1");
+    $(this).css("border", "1px solid #5b6ce1");
+  });
+  bankCharges.on("input", function () {
+    invalidbankCharges.text("");
+    $(this).css("border", "1px solid #5b6ce1");
+    $(this).css("border", "1px solid #5b6ce1");
+  });
+  medicalAllowance.on("input", function () {
+    invalidmedicalAllowance.text("");
     $(this).css("border", "1px solid #5b6ce1");
     $(this).css("border", "1px solid #5b6ce1");
   });
@@ -205,6 +255,15 @@ $(document).ready(function () {
       relationToKin: relationToKin.val(),
       homeAddress1: homeAddress1.val(),
       homeAddress2: homeAddress2.val(),
+      grossSalary: grossSalary.val(),
+      basicSalary: basicSalary.val(),
+      houseRent: houseRent.val(),
+      medicalAllowance: medicalAllowance.val(),
+      utility: utility.val(),
+      taxableAmount: taxableAmount.val(),
+      incomeTax: incomeTax.val(),
+      eobi: eobi.val(),
+      bankCharges: bankCharges.val(),
       selectedUnit,
       selectedDepartment,
       selectedDesignation,
@@ -262,6 +321,51 @@ $(document).ready(function () {
       invalidhomeAddress2.text("This field is required");
     }
 
+    if (properties.grossSalary === "") {
+      grossSalary.css("border", "1px solid #BA0021");
+      invalidgrossSalary.text("This field is required");
+    }
+
+    if (properties.basicSalary === "") {
+      basicSalary.css("border", "1px solid #BA0021");
+      invalidbasicSalary.text("This field is required");
+    }
+
+    if (properties.houseRent === "") {
+      houseRent.css("border", "1px solid #BA0021");
+      invalidhouseRent.text("This field is required");
+    }
+
+    if (properties.medicalAllowance === "") {
+      medicalAllowance.css("border", "1px solid #BA0021");
+      invalidmedicalAllowance.text("This field is required");
+    }
+
+    if (properties.utility === "") {
+      utility.css("border", "1px solid #BA0021");
+      invalidutility.text("This field is required");
+    }
+
+    if (properties.taxableAmount === "") {
+      taxableAmount.css("border", "1px solid #BA0021");
+      invalidtaxableAmount.text("This field is required");
+    }
+
+    if (properties.incomeTax === "") {
+      incomeTax.css("border", "1px solid #BA0021");
+      invalidincomeTax.text("This field is required");
+    }
+
+    if (properties.eobi === "") {
+      eobi.css("border", "1px solid #BA0021");
+      invalideobi.text("This field is required");
+    }
+
+    if (properties.bankCharges === "") {
+      bankCharges.css("border", "1px solid #BA0021");
+      invalidbankCharges.text("This field is required");
+    }
+
     if (properties.selectedUnit === "") {
       selectedUnit.css("border", "1px solid #BA0021");
       invalidselectedUnit.text("This field is required");
@@ -306,6 +410,15 @@ $(document).ready(function () {
       relationToKin: relationToKin.val(),
       homeAddress1: homeAddress1.val(),
       homeAddress2: homeAddress2.val(),
+      grossSalary: grossSalary.val().replace("PKR:", ""),
+      basicSalary: basicSalary.val().replace("PKR:", ""),
+      houseRent: houseRent.val().replace("PKR:", ""),
+      medicalAllowance: medicalAllowance.val().replace("PKR:", ""),
+      utility: utility.val().replace("PKR:", ""),
+      taxableAmount: taxableAmount.val().replace("PKR:", ""),
+      incomeTax: incomeTax.val().replace("PKR:", ""),
+      eobi: eobi.val().replace("PKR:", ""),
+      bankCharges: bankCharges.val().replace("PKR:", ""),
       selectedUnit,
       selectedDepartment,
       selectedDesignation,

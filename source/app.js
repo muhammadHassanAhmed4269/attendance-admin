@@ -129,7 +129,7 @@ app.use(authRoutes);
 
 app.use(checkTokenMiddleware);
 
-app.use(roleBasedAuthorization);
+// app.use(roleBasedAuthorization);
 
 app.use((req, res, next) => {
   if (req.user) {

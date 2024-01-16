@@ -6,6 +6,7 @@ class Pages {
   async getEmployees(req, res) {
     try {
       const employees = await getEmployees();
+      console.log(employees);
       return res.render("employees/get-list", {
         title: "Employees",
         employees,
@@ -36,7 +37,6 @@ class Pages {
       const employee = await getEmployee(req.query._id);
       const units = await getUnits();
       const shifts = await getShifts();
-      console.log(units, shifts);
       return res.render("employees/update", {
         title: "Update Employee",
         employee,
@@ -54,7 +54,9 @@ module.exports = Pages;
 
 async function getEmployee(_id) {
   try {
-    const employee = await Employee.findById(_id);
+    const employee = await Employee.findById(_id).populate(
+      "unit department designation"
+    );
     return employee;
   } catch (error) {
     console.error(error);
@@ -63,7 +65,9 @@ async function getEmployee(_id) {
 
 async function getEmployees() {
   try {
-    const getemployees = await Employee.find();
+    const getemployees = await Employee.find().populate(
+      "unit department designation"
+    );
     const employees = [];
     let count = 0;
     getemployees.map((p) => {
@@ -75,6 +79,9 @@ async function getEmployees() {
         email: p.email,
         mobileNumber: p.mobileNumber,
         nicNumber: p.nicNumber,
+        units: p.unit || "--",
+        departments: p.department || "--",
+        designations: p.designation || "--",
       });
     });
     return employees;

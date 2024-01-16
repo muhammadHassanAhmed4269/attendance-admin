@@ -15,6 +15,7 @@ $(document).ready(function () {
       },
       error: function (xhr, status, error) {
         const response = xhr.responseJSON;
+        // Do not show an alert box for errors, only handle success messages
         handleResponse(response.header.message, toastr.error);
       },
     });

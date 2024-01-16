@@ -228,6 +228,110 @@
                                                     style="color: #BA0021;font-weight:bold;">
                                                 </div>
                                             </div>
+                                            <label for="payroll-information">
+                                                <h5 class="m-2"><strong>Payroll Information: </strong> </h5>
+                                            </label>
+                                            <div class="row" id="payroll-information">
+                                                <div class="col-lg-6">
+                                                    <label for="grossSalary" class="m-2">Employee's Gross
+                                                        Salary:</label>
+                                                    <div class="common_input mb_15">
+                                                        <input style="border: 1px solid #5b6ce1;" type="text"
+                                                            placeholder="PKR:0.00" id="grossSalary" name="grossSalary">
+                                                        <div class="m-2" id="invalid-gross-salary"
+                                                            style="color: #BA0021;font-weight:bold;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <label for="grossSalary" class="m-2">Employee's Basic
+                                                        Salary:</label>
+                                                    <div class="common_input mb_15">
+                                                        <input style="border: 1px solid #5b6ce1;" type="text"
+                                                            placeholder="PKR:0.00" id="basicSalary" name="basicSalary"
+                                                            readonly>
+                                                        <div class="m-2" id="invalid-basic-salary"
+                                                            style="color: #BA0021;font-weight:bold;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <label for="grossSalary" class="m-2">Employee's House Rent:</label>
+                                                    <div class="common_input mb_15">
+                                                        <input style="border: 1px solid #5b6ce1;" type="text"
+                                                            placeholder="PKR:0.00" id="houseRent" name="houseRent"
+                                                            readonly>
+                                                        <div class="m-2" id="invalid-gross-salary"
+                                                            style="color: #BA0021;font-weight:bold;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <label for="grossSalary" class="m-2">Employee's Utility:</label>
+                                                    <div class="common_input mb_15">
+                                                        <input style="border: 1px solid #5b6ce1;" type="text"
+                                                            placeholder="PKR:0.00" id="utility" name="utility" readonly>
+                                                        <div class="m-2" id="invalid-utility"
+                                                            style="color: #BA0021;font-weight:bold;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <label for="grossSalary" class="m-2">Employee's Medical
+                                                        Allowance:</label>
+                                                    <div class="common_input mb_15">
+                                                        <input style="border: 1px solid #5b6ce1;" type="text"
+                                                            placeholder="PKR:0.00" id="medicalAllowance"
+                                                            name="medicalAllowance" readonly>
+                                                        <div class="m-2" id="invalid-medical-allowance"
+                                                            style="color: #BA0021;font-weight:bold;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <label for="grossSalary" class="m-2">Employee's Taxable
+                                                        Amount:</label>
+                                                    <div class="common_input mb_15">
+                                                        <input style="border: 1px solid #5b6ce1;" type="text"
+                                                            placeholder="PKR:0.00" id="taxableAmount"
+                                                            name="taxableAmount">
+                                                        <div class="m-2" id="invalid-taxable-amount"
+                                                            style="color: #BA0021;font-weight:bold;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <label for="grossSalary" class="m-2">Employee's Income Tax:</label>
+                                                    <div class="common_input mb_15">
+                                                        <input style="border: 1px solid #5b6ce1;" type="text"
+                                                            placeholder="PKR:0.00" id="incomeTax" name="incomeTax">
+                                                        <div class="m-2" id="invalid-income-tax"
+                                                            style="color: #BA0021;font-weight:bold;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <label for="grossSalary" class="m-2">Employee's EOBI:</label>
+                                                    <div class="common_input mb_15">
+                                                        <input style="border: 1px solid #5b6ce1;" type="text" id="eobi"
+                                                            placeholder="PKR:0.00" name="eobi">
+                                                        <div class="m-2" id="invalid-eobi"
+                                                            style="color: #BA0021;font-weight:bold;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <label for="grossSalary" class="m-2">Employee's Bank
+                                                        Charges:</label>
+                                                    <div class="common_input mb_15">
+                                                        <input style="border: 1px solid #5b6ce1;" type="text"
+                                                            id="bankCharges" placeholder="PKR:0.00" name="bankCharges">
+                                                        <div class="m-2" id="invalid-bank-charges"
+                                                            style="color: #BA0021;font-weight:bold;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <label for="assign-role">
                                                 <h5 class="m-2"><strong>Assign Role: </strong> </h5>
                                             </label>
@@ -480,6 +584,223 @@
         });
     </script>
 
+    <script>
+        function formatPakistaniNumber(number) {
+            return new Intl.NumberFormat('en-PK', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(number);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const grossSalary = document.getElementById('grossSalary');
+            const basicSalary = document.getElementById('basicSalary');
+            const houseRent = document.getElementById('houseRent');
+            const utility = document.getElementById('utility');
+            const medicalAllowance = document.getElementById('medicalAllowance');
+            const taxableAmount = document.getElementById('taxableAmount');
+            const incomeTax = document.getElementById('incomeTax');
+            const eobi = document.getElementById('eobi');
+            const bankCharges = document.getElementById('bankCharges');
+
+            grossSalary.addEventListener('input', function () {
+                const inputValue = grossSalary.value;
+                let cursorPosition = grossSalary.selectionStart;
+
+                if (!inputValue.startsWith('PKR:')) {
+                    grossSalary.value = 'PKR:';
+                    return;
+                }
+
+                let grossAmount = parseFloat(inputValue.replace('PKR:', '').replace(/,/g, ''));
+
+                if (!isNaN(grossAmount)) {
+                    const formattedGrossAmount = 'PKR:' + formatPakistaniNumber(grossAmount.toFixed(2));
+                    grossSalary.value = formattedGrossAmount;
+
+                    // Adjust cursor position to be ahead of the last input number but before the dot
+                    const indexOfDot = formattedGrossAmount.indexOf('.');
+                    if (cursorPosition > indexOfDot || cursorPosition < 'PKR:'.length) {
+                        cursorPosition = indexOfDot + 'PKR:'.length;
+                    }
+
+                    // Restore cursor position
+                    grossSalary.setSelectionRange(cursorPosition, cursorPosition);
+
+                    const basicPercentage = 60;
+                    const houseRentPercentage = 20;
+                    const utilityPercentage = 14;
+                    const medicalAllowancePercentage = 6;
+
+                    const basicSalaryAmount = (basicPercentage / 100) * grossAmount || 0.00;
+                    const houseRentAmount = (houseRentPercentage / 100) * grossAmount || 0.00;
+                    const utilityAmount = (utilityPercentage / 100) * grossAmount || 0.00;
+                    const medicalAllowanceAmount = (medicalAllowancePercentage / 100) * grossAmount || 0.00;
+
+                    basicSalary.value = 'PKR:' + formatPakistaniNumber(basicSalaryAmount.toFixed(2));
+                    houseRent.value = 'PKR:' + formatPakistaniNumber(houseRentAmount.toFixed(2));
+                    utility.value = 'PKR:' + formatPakistaniNumber(utilityAmount.toFixed(2));
+                    medicalAllowance.value = 'PKR:' + formatPakistaniNumber(medicalAllowanceAmount.toFixed(2));
+                } else {
+                    // Handle the case when the input cannot be parsed as a valid number
+                    grossSalary.value = 'PKR:';
+
+                    // Restore cursor position to the end
+                    grossSalary.setSelectionRange(grossSalary.value.length, grossSalary.value.length);
+                }
+            });
+
+            taxableAmount.addEventListener('input', function () {
+                const inputValue = taxableAmount.value;
+                let cursorPosition = taxableAmount.selectionStart;
+
+                if (!inputValue.startsWith('PKR:')) {
+                    taxableAmount.value = 'PKR:';
+                    return;
+                }
+
+                let taxableAmountValue = inputValue
+                    .replace(/[^\d.]/g, '') // Remove non-numeric characters except dots
+                    .replace(/\.(?=.*\.)/g, '') // Remove multiple dots, leaving only the last one
+                    .replace(/^(\d+\.\d*).*$/, '$1'); // Allow only one dot before the last digit
+
+                taxableAmountValue = parseFloat(taxableAmountValue);
+
+                if (!isNaN(taxableAmountValue)) {
+                    const formattedAmount = 'PKR:' + formatPakistaniNumber(taxableAmountValue.toFixed(2));
+                    taxableAmount.value = formattedAmount;
+
+                    // Adjust cursor position to be ahead of the last input number but before the dot
+                    const indexOfDot = formattedAmount.indexOf('.');
+                    if (cursorPosition > indexOfDot || cursorPosition < 'PKR:'.length) {
+                        cursorPosition = indexOfDot + 'PKR:'.length;
+                    }
+
+                    // Restore cursor position
+                    taxableAmount.setSelectionRange(cursorPosition, cursorPosition);
+                } else {
+                    // Handle the case when the input cannot be parsed as a valid number
+                    taxableAmount.value = 'PKR:';
+
+                    // Restore cursor position to the end
+                    taxableAmount.setSelectionRange(taxableAmount.value.length, taxableAmount.value.length);
+                }
+            });
+
+
+            incomeTax.addEventListener('input', function () {
+                const inputValue = incomeTax.value;
+                let cursorPosition = incomeTax.selectionStart;
+
+                if (!inputValue.startsWith('PKR:')) {
+                    incomeTax.value = 'PKR:';
+                    return;
+                }
+
+                let incomeTaxValue = inputValue
+                    .replace(/[^\d.]/g, '') // Remove non-numeric characters except dots
+                    .replace(/\.(?=.*\.)/g, '') // Remove multiple dots, leaving only the last one
+                    .replace(/^(\d+\.\d*).*$/, '$1'); // Allow only one dot before the last digit
+
+                incomeTaxValue = parseFloat(incomeTaxValue);
+
+                if (!isNaN(incomeTaxValue)) {
+                    const formattedAmount = 'PKR:' + formatPakistaniNumber(incomeTaxValue.toFixed(2));
+                    incomeTax.value = formattedAmount;
+
+                    // Adjust cursor position to be ahead of the last input number but before the dot
+                    const indexOfDot = formattedAmount.indexOf('.');
+                    if (cursorPosition > indexOfDot || cursorPosition < 'PKR:'.length) {
+                        cursorPosition = indexOfDot + 'PKR:'.length;
+                    }
+
+                    // Restore cursor position
+                    incomeTax.setSelectionRange(cursorPosition, cursorPosition);
+                } else {
+                    // Handle the case when the input cannot be parsed as a valid number
+                    incomeTax.value = 'PKR:';
+
+                    // Restore cursor position to the end
+                    incomeTax.setSelectionRange(incomeTax.value.length, incomeTax.value.length);
+                }
+            });
+
+
+            eobi.addEventListener('input', function () {
+                const inputValue = eobi.value;
+                let cursorPosition = eobi.selectionStart;
+
+                if (!inputValue.startsWith('PKR:')) {
+                    eobi.value = 'PKR:';
+                    return;
+                }
+
+                let eobiValue = inputValue
+                    .replace(/[^\d.]/g, '') // Remove non-numeric characters except dots
+                    .replace(/\.(?=.*\.)/g, '') // Remove multiple dots, leaving only the last one
+                    .replace(/^(\d+\.\d*).*$/, '$1'); // Allow only one dot before the last digit
+
+                eobiValue = parseFloat(eobiValue);
+
+                if (!isNaN(eobiValue)) {
+                    const formattedAmount = 'PKR:' + formatPakistaniNumber(eobiValue.toFixed(2));
+                    eobi.value = formattedAmount;
+
+                    // Adjust cursor position to be ahead of the last input number but before the dot
+                    const indexOfDot = formattedAmount.indexOf('.');
+                    if (cursorPosition > indexOfDot || cursorPosition < 'PKR:'.length) {
+                        cursorPosition = indexOfDot + 'PKR:'.length;
+                    }
+
+                    // Restore cursor position
+                    eobi.setSelectionRange(cursorPosition, cursorPosition);
+                } else {
+                    // Handle the case when the input cannot be parsed as a valid number
+                    eobi.value = 'PKR:';
+
+                    // Restore cursor position to the end
+                    eobi.setSelectionRange(eobi.value.length, eobi.value.length);
+                }
+            });
+
+
+            bankCharges.addEventListener('input', function () {
+                const inputValue = bankCharges.value;
+                let cursorPosition = bankCharges.selectionStart;
+
+                if (!inputValue.startsWith('PKR:')) {
+                    bankCharges.value = 'PKR:';
+                    return;
+                }
+
+                let bankChargesValue = inputValue
+                    .replace(/[^\d.]/g, '') // Remove non-numeric characters except dots
+                    .replace(/\.(?=.*\.)/g, '') // Remove multiple dots, leaving only the last one
+                    .replace(/^(\d+\.\d*).*$/, '$1'); // Allow only one dot before the last digit
+
+                bankChargesValue = parseFloat(bankChargesValue);
+
+                if (!isNaN(bankChargesValue)) {
+                    const formattedAmount = 'PKR:' + formatPakistaniNumber(bankChargesValue.toFixed(2));
+                    bankCharges.value = formattedAmount;
+
+                    // Adjust cursor position to be ahead of the last input number but before the dot
+                    const indexOfDot = formattedAmount.indexOf('.');
+                    if (cursorPosition > indexOfDot || cursorPosition < 'PKR:'.length) {
+                        cursorPosition = indexOfDot + 'PKR:'.length;
+                    }
+
+                    // Restore cursor position
+                    bankCharges.setSelectionRange(cursorPosition, cursorPosition);
+                } else {
+                    // Handle the case when the input cannot be parsed as a valid number
+                    bankCharges.value = 'PKR:';
+
+                    // Restore cursor position to the end
+                    bankCharges.setSelectionRange(bankCharges.value.length, bankCharges.value.length);
+                }
+            });
+        });
+
+
+    </script>
 </body>
 
 </html>
