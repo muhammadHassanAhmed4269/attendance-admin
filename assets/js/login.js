@@ -45,7 +45,7 @@ $(document).ready(function () {
 
           setTimeout(() => {
             window.location.href = "/dashboard";
-          }, 1000);
+          }, 100);
         },
         error: function (xhr, status, error) {
           const response = xhr.responseJSON;

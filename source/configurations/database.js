@@ -1,5 +1,6 @@
 // Import required modules
 const mongoose = require("mongoose");
+const { database } = require("./environment-variables");
 require("dotenv").config();
 
 // DatabaseConnector class for handling MongoDB connections
@@ -43,7 +44,7 @@ class DatabaseConnector {
 }
 
 // Check if MongoDB URL is provided in the environment variables
-const DBURI = process.env.MONGODB_URL;
+const DBURI = database.url;
 if (!DBURI) {
   console.error("MongoDB URL is missing.");
   process.exit(1);

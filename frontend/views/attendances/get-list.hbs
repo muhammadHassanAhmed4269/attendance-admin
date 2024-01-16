@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html lang="zxx">
 
-<!-- Mirrored from demo.dashboardpack.com/user-management-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 13 Dec 2023 13:29:04 GMT -->
-
 <head>
     {{> header}}
+    <!-- Add this script section at the end of your body -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Function to export table data to PDF
+            function exportToPDF() {
+                var doc = new jsPDF();
+
+                // Get the HTML content of the table
+                var tableHtml = $("#attendance-list").html();
+
+                // Add HTML content to the PDF
+                doc.fromHTML(tableHtml, 15, 15);
+
+                // Save the PDF
+                doc.save("attendance_list.pdf");
+            }
+
+            // Attach a click event to the export button
+            $(".export-pdf-button").on("click", function () {
+                exportToPDF();
+            });
+        });
+    </script>
 </head>
 
 <body class="crm_body_bg">
-
 
     <nav class="sidebar">
         {{> sidebar}}
@@ -27,11 +50,13 @@
                         <div class="white_card card_height_100 mb_30 pt-4">
                             <div class="white_card_body">
                                 <div class="QA_section">
-                                    <div class="white_box_tittle list_header">
-                                        <h4>Attendance List </h4>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div class="white_box_tittle list_header">
+                                            <h4>Attendance List</h4>
+                                        </div>
+                                        <a class="btn btn-danger export-pdf-button">Export as PDF</a>
                                     </div>
                                     <div class="QA_table mb_30">
-
                                         {{!-- attendances --}}
                                         <table class="table lms_table_active ">
                                             <thead>
@@ -44,7 +69,6 @@
                                                     <th scope="col"><strong>Total Check In</strong></th>
                                                     <th scope="col"><strong>Total Check Out</strong></th>
                                                     <th scope="col"><strong>Month</strong></th>
-                                                    {{!-- <th scope="col"><strong>Action</strong></th> --}}
                                                 </tr>
                                             </thead>
                                             <tbody id="attendance-list">
@@ -62,18 +86,6 @@
                                                                 href="/attendance?_id={{this._id}}&month={{this.month}}"
                                                                 class="status_btn bg-dark">{{this.month}}</a></strong>
                                                     </td>
-                                                    {{!-- <td>
-                                                        <div class="action_btns d-flex">
-                                                            <a href="/attendance/update?_id={{this._id}}"
-                                                                class="action_btn mr_10">
-                                                                <i class="far fa-edit"></i>
-                                                            </a>
-                                                            <a style="cursor: pointer;" id="{{this._id}}"
-                                                                class="action_btn delete delete-attendance-button"> <i
-                                                                    class="fas fa-trash"></i>
-                                                            </a>
-                                                        </div>
-                                                    </td> --}}
                                                 </tr>
                                                 {{/monthlyRecords}}
                                                 {{/attendances}}
@@ -92,9 +104,7 @@
         {{> main_footer}}
     </section>
 
-
     {{> chat_popup_box}}
-
 
     <div id="back-top" style="display: none;">
         {{> back_to_top}}
@@ -102,8 +112,11 @@
 
     {{> footer}}
 
+
 </body>
 
-<!-- Mirrored from demo.dashboardpack.com/user-management-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 13 Dec 2023 13:29:54 GMT -->
+</html>
+
+
 
 </html>

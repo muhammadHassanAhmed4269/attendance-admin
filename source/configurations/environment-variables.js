@@ -9,7 +9,7 @@ const environmentVariables = {
     sessionSecret: process.env.SESSION_SECRET,
   },
   database: {
-    url: process.env.MONGO_URL,
+    url: process.env.MONGODB_URL,
   },
   smtpCredentials: {
     email: process.env.APP_EMAIL,
